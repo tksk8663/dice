@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title>だいす</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+    <link href="./css/dice.css" rel="stylesheet" type="text/css" />
+    <meta name="viewport" content="width=320px,user-scalable=no,shrink-to-fit=yes" />
+    <meta http-equiv="content-language" content="ja" />
+    <meta charset="utf-8" />
+    <script type="text/javascript" src="./js/dice.js"></script>
+  </head>
+  <body>
+    <div class="body">
+      <div class="title">だいす</div>
+      <div class="inputBox">
+        <input id="diceCount" type="number" onChange="validate()" min="1" value="1" />&nbsp;/D6
+        <button id="button" onclick="diceRoll();">転がす</button>
+      </div>
+      <div id="diceField"></div>
+      <div class="spacer"></div>
+    </div>
+  </body>
+</html>
