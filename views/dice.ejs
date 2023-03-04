@@ -1,0 +1,51 @@
+<html>
+  <% try { %>
+  <% var wdt = 320; %>
+  <script src="/socket.io/socket.io.js" type="text/javascript"></script>
+  <%- include('./head', {wdt: wdt, ttl: "だいす", css: "/css/dice.css", js: "/js/dice.js"}); %>
+  <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <body>
+    <div class="body">
+      <div class="title">Dice</div>
+  <% if (roomId === undefined) { %>
+      <div class="container">
+        <div class="row"><div class="col"><a href="/dice/1">ルーム１</a></div></div>
+        <div class="row"><div class="col"><a href="/dice/2">ルーム２</a></div></div>
+        <div class="row"><div class="col"><a href="/dice/3">ルーム３</a></div></div>
+        <div class="row"><div class="col"><a href="/dice/4">ルーム４</a></div></div>
+        <div class="row"><div class="col"><a href="/dice/5">ルーム５</a></div></div>
+      </div>
+  <% } else { %>
+      <div class="container">
+        <div class="row">
+          <div class="col"><input id="diceCount" type="number" onChange="validate()" min="0" value="<%= dice?.count ? dice.count : 1 %>" />&nbsp;/D6</div>
+        </div>
+        <div class="row">
+          <div class="col" name="other" id="D4" style="display: none;"><input id="diceCountD4" type="number" onChange="validate()" min="0" value="0" />&nbsp;/D4</div>
+          <div class="col" name="other" style="display: none;"><input id="diceCountD8" type="number" onChange="validate()" min="0" value="0" />&nbsp;/D8</div>
+        </div>
+        <div class="row">
+          <div class="col" name="other" style="display: none;"><input id="diceCountD10" type="number" onChange="validate()" min="0" value="0" />&nbsp;/D10</div>
+          <div class="col" name="other" style="display: none;"><input id="diceCountD10-2" type="number" onChange="validate()" min="0" value="0" />&nbsp;/D10-2</div>
+        </div>
+        <div class="row">
+          <div class="col" name="other" style="display: none;"><input id="diceCountD12" type="number" onChange="validate()" min="0" value="0" />&nbsp;/D12</div>
+          <div class="col" name="other" style="display: none;"><input id="diceCountD20" type="number" onChange="validate()" min="0" value="0" />&nbsp;/D20</div>
+        </div>
+      </div>
+      <!-- div class="txc p8ph"><span class="f12p link" onclick="dice_on_off()">[６面以外のダイスOn/Off]</span></div -->
+      <div class="txc"><button id="button" onclick="diceRoll(true);" class="btn btn-success">転がす</button></div>
+      <div class="f6p">&nbsp;</div>
+      <div id="result" class="result"></div>
+      <div id="diceField">
+      </div>
+    <script>restart(<%= dice?.status === "start" %>, '<%- JSON.stringify(dice) %>');</script>
+  <% } %>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript"></script>
+    <script src="/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+  </body>
+  <% } catch(e) { %>
+  <body><div><%= e.stack %></div></body>
+  <% } %>
+</html>

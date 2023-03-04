@@ -1,0 +1,80 @@
+.body {
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+}
+
+.title {
+  text-align: center;
+  font-size: x-large;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.inputBox {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.dice {
+  width: 60px;
+  height: 60px;
+  float: left;
+}
+
+input {
+  width: 4em;
+  text-align: center;
+}
+
+.spacer {
+  height: 5px;
+  clear: both;
+}
+
+.txc {
+  text-align: center;
+}
+
+.result {
+  text-align: center;
+  font-size: 16px;
+}
+
+.p5t {
+  padding-top: 5px;
+}
+
+.small-dice {
+  width: 16px;
+  height: 16px;
+}
+
+.link {
+  color: #00a;
+  user-select: none;
+  text-decoration: none;
+}
+
+.f6p {
+  font-size: 6px;
+}
+
+.f12p {
+  font-size: 12px;
+}
+
+.p8ph {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.float-l {
+  float: left;
+}
+
+.clear {
+  clear: both;
+}
